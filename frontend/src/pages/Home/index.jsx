@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import './style.css';
 import Trash from '../../assets/trash.png';
-import Edit from '../../assets/editar.png'
+import Edit from '../../assets/editar.png';
 import Api from '../../services/api';
+import { toast } from 'react-toastify';
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -18,6 +19,22 @@ function Home() {
   }
 
   async function createUsers() {
+    if (
+      !inputEmail.current.value ||
+      !inputAge.current.value ||
+      !inputName.current.value
+    ) {
+      toast.info('All fields are required!');
+      return;
+    }
+    if (
+      !inputEmail.current.value.includes('@') ||
+      !inputEmail.current.value.includes('.com')
+    ) {
+      toast.error('Invalid email address!');
+      return;
+    }
+
     await Api.post('/users', {
       name: inputName.current.value,
       age: inputAge.current.value,
@@ -26,6 +43,8 @@ function Home() {
 
     formRef.current.reset();
     getUsers();
+
+    toast.success('User registered successfully!');
   }
 
   useEffect(() => {
@@ -35,6 +54,8 @@ function Home() {
   async function deleteUsers(id) {
     await Api.delete(`/users/${id}`);
     getUsers();
+
+    toast.success('User deleted successfully!');
   }
 
   return (
@@ -82,12 +103,12 @@ function Home() {
             </p>
           </div>
           <div className='div-buttons'>
-          <button>
-            <img src={Edit} alt='Edit User' />
-          </button>
-          <button onClick={() => deleteUsers(user.id)}>
-            <img src={Trash} alt='Delete user' />
-          </button>
+            <button>
+              <img src={Edit} alt='Edit User' />
+            </button>
+            <button onClick={() => deleteUsers(user.id)}>
+              <img src={Trash} alt='Delete user' />
+            </button>
           </div>
         </div>
       ))}
