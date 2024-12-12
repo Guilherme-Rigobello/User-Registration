@@ -103,9 +103,6 @@ function Home() {
             </p>
           </div>
           <div className='div-buttons'>
-            <button>
-              <img src={Edit} alt='Edit User' />
-            </button>
             <button onClick={() => deleteUsers(user.id)}>
               <img src={Trash} alt='Delete user' />
             </button>

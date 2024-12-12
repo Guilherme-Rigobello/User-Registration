@@ -1,5 +1,13 @@
 {
+  "homepage": "https://Guilherme-Rigobello.github.io/user-registration",
   "dependencies": {
     "react-toastify": "^10.0.6"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }
