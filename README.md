@@ -37,12 +37,14 @@ npm install
 Then, run the following commands to start the project (frontend):
 ```bash
 cd frontend
+npm i
 npm run dev 
 ```
 Open http://localhost:5173 in your browser.
 
 ```bash
 cd backend
+npm i
 node --watch server.js
 ```
 This will start the backend server at the URL http://localhost:3005.
