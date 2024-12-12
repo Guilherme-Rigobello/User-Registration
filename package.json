@@ -3,10 +3,11 @@
   "dependencies": {
     "react-toastify": "^10.0.6"
   },
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  },
+    "scripts": {
+      "predeploy": "npm run build",
+      "build": "react-scripts build",
+      "deploy": "gh-pages -d dist"
+    },
   "devDependencies": {
     "gh-pages": "^6.2.0"
   }
