@@ -1,6 +1,6 @@
 # 🙋‍♂️ **User Registration**
 
-A user registrar where you can add and delete users with conditional messages using react tostify library
+A user registrar where you can add and delete users with conditional messages using react tostify library.
 
 ![fdwfwwfw](https://github.com/user-attachments/assets/9d545a82-62b7-4b07-8dbc-308247f53a5d)
 
